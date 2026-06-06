@@ -14,23 +14,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-activate-base: true
+          activate-environment: ''
+
       - name: Install Dependencies
         run: |
           pip install mlflow==2.19.0
           pip install pandas
           pip install scikit-learn
 
-      - name: Initialize Conda
-        run: |
-          conda init bash
-          source ~/.bashrc
-
       - name: Run MLflow Project
         run: |
           cd MLProject
-          mlflow run .
+          mlflow run . --experiment-name Telco_Customer_Churn
 
-          
       - name: Upload Model Artifact
         uses: actions/upload-artifact@v4
         with:
