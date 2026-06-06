@@ -18,7 +18,7 @@ jobs:
         with:
           auto-activate-base: true
           activate-environment: mlflow-env
-        python-version: "3.12"
+          python-version: "3.12"
 
       - name: Install Dependencies
         run: |
