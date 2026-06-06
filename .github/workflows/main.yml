@@ -20,7 +20,16 @@ jobs:
           pip install pandas
           pip install scikit-learn
 
-      - name: Train Model
+      - name: Run MLflow Project
         run: |
           cd MLProject
-          python modelling.py
+          mlflow run .
+
+          
+      - name: Upload Model Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: churn-model
+          path: |
+            MLProject/*.pkl
+            MLProject/mlruns/**

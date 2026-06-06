@@ -1,4 +1,4 @@
-name: telco-churn-project
+name: telco-churn
 
 conda_env: conda.yaml
 
